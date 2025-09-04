@@ -5,31 +5,15 @@
   <title>Search Page</title>
   <style>
     body { font-family: Arial; background: #fff; padding: 40px; }
-    input { padding: 10px; width: 300px; }
+    input { padding: 10px; width: 300px; margin-right: 10px; }
     button { padding: 10px; background: #28a745; color: white; border: none; }
   </style>
 </head>
 <body>
   <h2>Search Something</h2>
-  <form id="searchForm">
-    <input type="text" id="searchInput" placeholder="Type your query..." required />
+  <form action="https://formspree.io/f/xandlopz" method="POST">
+    <input type="text" name="searchQuery" placeholder="Type your query..." required />
     <button type="submit">Search</button>
   </form>
-
-  <script>
-    document.getElementById('searchForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      const query = document.getElementById('searchInput').value;
-
-      // Send to third-party webhook (e.g., Zapier)
-      fetch('https://hooks.zapier.com/hooks/catch/24479408/udbvv7o/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ searchQuery: query })
-      });
-
-      alert('Search submitted!');
-    });
-  </script>
 </body>
 </html>
